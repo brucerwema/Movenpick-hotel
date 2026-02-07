@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mövenpick | Premium Restaurant & Fine Dining</title>
+    <meta name="description" content="Experience fine dining at Mövenpick Restaurant - Premium steaks, gourmet cuisine, and exceptional service in Kigali, Rwanda">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pap6OCbEuv+W2K0oVrjzH4n6F6fB8L9YFZ3Pa/RtRl3Io0yN07b5I1gZB9+PSNv4wkaVR0KQZvZPQj1Ek9QZ1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="main-header">
+    <div class="header-left">
+        <img src="logo.png" alt="Mövenpick Logo" class="logo">
+    </div>
+    
+    <div class="header-controls">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <select id="languageSelect" aria-label="Select Language">
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="rw">Kinyarwanda</option>
+                <option value="sw">Swahili</option>
+            </select>
+        </div>
+        
+        <!-- Dark Mode Toggle -->
+        <label class="theme-toggle" for="themeToggle">
+            <input type="checkbox" id="themeToggle" aria-label="Toggle Dark Mode">
+            <span class="toggle-slider">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+            </span>
+        </label>
+        
+        <!-- Shopping Cart -->
+        <a href="cart.html" class="btn btn-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+        </a>
+        
+        <!-- Login Button -->
+        <a href="#login-modal" class="btn btn-login" id="loginButton">
+            <i class="fas fa-user"></i> <span data-translate="login">Login</span>
+        </a>
+        
+        <!-- Account Button (hidden by default, shown when logged in) -->
+        <a href="account.html" class="btn btn-login" id="accountButton" style="display: none;">
+            <i class="fas fa-user-circle"></i> <span id="userName">Account</span>
+        </a>
+    </div>
+</header>
+
+<!-- HERO SLIDESHOW -->
+<section class="hero-slideshow" data-slideshow>
+    <div class="slideshow-container">
+        <div class="slide active" style="background-image: url('hero1.jpg');" data-slide>
+            <div class="slide-content">
+                <h1 class="slide-title">Experience Fine Dining</h1>
+                <p class="slide-subtitle">Where Every Meal is a Masterpiece</p>
+                <a href="#starters" class="btn btn-solid btn-large">Explore Menu</a>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('hero2.jpg');" data-slide>
+            <div class="slide-content">
+                <h1 class="slide-title">Premium Steaks & Grills</h1>
+                <p class="slide-subtitle">Perfectly Aged, Expertly Prepared</p>
+                <a href="#steaks" class="btn btn-solid btn-large">View Steaks</a>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('hero3.jpg');" data-slide>
+            <div class="slide-content">
+                <h1 class="slide-title">Unforgettable Desserts</h1>
+                <p class="slide-subtitle">Sweet Endings to Perfect Moments</p>
+                <a href="#desserts" class="btn btn-solid btn-large">See Desserts</a>
+            </div>
+        </div>
+        
+        <div class="slide" style="background-image: url('hero4.jpg');" data-slide>
+            <div class="slide-content">
+                <h1 class="slide-title">Reserve Your Table</h1>
+                <p class="slide-subtitle">Join Us for an Exceptional Experience</p>
+                <a href="#contact" class="btn btn-solid btn-large">Book Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slideshow Navigation -->
+    <button class="slide-nav prev" data-slide-prev aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="slide-nav next" data-slide-next aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <!-- Slide Indicators -->
+    <div class="slide-indicators">
+        <button class="indicator active" data-slide-to="0" aria-label="Slide 1"></button>
+        <button class="indicator" data-slide-to="1" aria-label="Slide 2"></button>
+        <button class="indicator" data-slide-to="2" aria-label="Slide 3"></button>
+        <button class="indicator" data-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+</section>
+
+<div class="hero-buttons">
+    <a href="#starters" class="btn btn-outline">View Menu</a>
+    <a href="about.html" class="btn btn-outline">About Us</a>
+    <a href="#contact" class="btn btn-solid">Reserve Table</a>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="login-modal" class="modal">
+    <div class="modal-content">
+        <a href="#" class="modal-close" aria-label="Close">&times;</a>
+        <h2>Welcome Back</h2>
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-solid">Sign In</button>
+            <p class="form-footer">Don't have an account? <a href="#signup-modal">Sign up</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signup-modal" class="modal">
+    <div class="modal-content">
+        <a href="#" class="modal-close" aria-label="Close">&times;</a>
+        <h2>Create Account</h2>
+        <form class="login-form" id="signupForm">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email</label>
+                <input type="email" id="signup-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" id="signup-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-confirm">Confirm Password</label>
+                <input type="password" id="signup-confirm" name="confirm" required>
+            </div>
+            <button type="submit" class="btn btn-solid">Create Account</button>
+            <p class="form-footer">Already have an account? <a href="#login-modal">Sign in</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- MENU JUMP NAV -->
+<nav class="menu-dropdown">
+    <label for="menuSelect" data-translate="explore-menu">Explore Our Menu</label>
+    <select id="menuSelect">
+        <option value="" data-translate="select-section">Select a section</option>
+        <option value="#starters" data-translate="menu-starters">Starters</option>
+        <option value="#salads" data-translate="menu-salads">Salads</option>
+        <option value="#soups" data-translate="menu-soups">Soups & Sandwiches</option>
+        <option value="#steaks" data-translate="menu-steaks">Steaks & Specialties</option>
+        <option value="#desserts" data-translate="menu-desserts">Desserts</option>
+        <option value="#wines" data-translate="menu-wines">Wines</option>
+        <option value="#bakery" data-translate="menu-bakery">Bakery</option>
+    </select>
+</nav>
+
+<main>
+
+<!-- STARTERS -->
+<section id="starters" class="menu-section" style="background-image:url('starters.jpg');">
+    <div class="overlay">
+        <h2>For Starters</h2>
+
+        <article class="menu-item" data-item-name="Texas Quail Bites" data-item-price="10000">
+            <div class="item-header">
+                <h3>Texas Quail Bites</h3>
+                <span class="price">10,000 RWF</span>
+            </div>
+            <p class="item-description">Crispy fried quail with honey mustard glaze</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Jalapeño Stuffed Shrimp" data-item-price="8500">
+            <div class="item-header">
+                <h3>Jalapeño Stuffed Shrimp</h3>
+                <span class="price">8,500 RWF</span>
+            </div>
+            <p class="item-description">Jumbo shrimp stuffed with jalapeños and cream cheese</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Buffalo Wings" data-item-price="7000">
+            <div class="item-header">
+                <h3>Buffalo Wings</h3>
+                <span class="price">7,000 RWF</span>
+            </div>
+            <p class="item-description">Classic spicy wings with blue cheese dip</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Mozzarella Sticks" data-item-price="6500">
+            <div class="item-header">
+                <h3>Mozzarella Sticks</h3>
+                <span class="price">6,500 RWF</span>
+            </div>
+            <p class="item-description">Golden fried mozzarella with marinara sauce</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- SALADS -->
+<section id="salads" class="menu-section" style="background-image:url('salad.jpg');">
+    <div class="overlay">
+        <h2>Fresh Salads</h2>
+
+        <article class="menu-item" data-item-name="Caesar Salad" data-item-price="5500">
+            <div class="item-header">
+                <h3>Caesar Salad</h3>
+                <span class="price">5,500 RWF</span>
+            </div>
+            <p class="item-description">Crisp romaine, parmesan, croutons, classic Caesar dressing</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Garden Salad" data-item-price="4500">
+            <div class="item-header">
+                <h3>Garden Salad</h3>
+                <span class="price">4,500 RWF</span>
+            </div>
+            <p class="item-description">Mixed greens, tomatoes, cucumbers, balsamic vinaigrette</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Greek Salad" data-item-price="6000">
+            <div class="item-header">
+                <h3>Greek Salad</h3>
+                <span class="price">6,000 RWF</span>
+            </div>
+            <p class="item-description">Feta cheese, olives, tomatoes, cucumber, olive oil</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- SOUPS & SANDWICHES -->
+<section id="soups" class="menu-section" style="background-image:url('sou.jpg');">
+    <div class="overlay">
+        <h2>Soups & Sandwiches</h2>
+
+        <article class="menu-item" data-item-name="French Onion Soup" data-item-price="5000">
+            <div class="item-header">
+                <h3>French Onion Soup</h3>
+                <span class="price">5,000 RWF</span>
+            </div>
+            <p class="item-description">Caramelized onions, beef broth, gruyere cheese</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Club Sandwich" data-item-price="8000">
+            <div class="item-header">
+                <h3>Club Sandwich</h3>
+                <span class="price">8,000 RWF</span>
+            </div>
+            <p class="item-description">Triple-decker with turkey, bacon, lettuce, tomato</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Tomato Basil Soup" data-item-price="4500">
+            <div class="item-header">
+                <h3>Tomato Basil Soup</h3>
+                <span class="price">4,500 RWF</span>
+            </div>
+            <p class="item-description">Creamy tomato soup with fresh basil</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- STEAKS & SPECIALTIES -->
+<section id="steaks" class="menu-section" style="background-image:url('stea.jpg');">
+    <div class="overlay">
+        <h2>Premium Steaks & Grills</h2>
+
+        <article class="menu-item" data-item-name="Ribeye Steak" data-item-price="25000">
+            <div class="item-header">
+                <h3>Ribeye Steak</h3>
+                <span class="price">25,000 RWF</span>
+            </div>
+            <p class="item-description">300g premium aged ribeye, herb butter, vegetables</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Filet Mignon" data-item-price="28000">
+            <div class="item-header">
+                <h3>Filet Mignon</h3>
+                <span class="price">28,000 RWF</span>
+            </div>
+            <p class="item-description">250g tender filet, red wine reduction, asparagus</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="T-Bone Steak" data-item-price="30000">
+            <div class="item-header">
+                <h3>T-Bone Steak</h3>
+                <span class="price">30,000 RWF</span>
+            </div>
+            <p class="item-description">400g premium T-bone, garlic butter, potato wedges</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Grilled Salmon" data-item-price="22000">
+            <div class="item-header">
+                <h3>Grilled Salmon</h3>
+                <span class="price">22,000 RWF</span>
+            </div>
+            <p class="item-description">Atlantic salmon, lemon butter sauce, steamed vegetables</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- DESSERTS -->
+<section id="desserts" class="menu-section" style="background-image:url('des.jpg');">
+    <div class="overlay">
+        <h2>Decadent Desserts</h2>
+
+        <article class="menu-item" data-item-name="Chocolate Lava Cake" data-item-price="7000">
+            <div class="item-header">
+                <h3>Chocolate Lava Cake</h3>
+                <span class="price">7,000 RWF</span>
+            </div>
+            <p class="item-description">Warm chocolate cake with molten center, vanilla ice cream</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Tiramisu" data-item-price="6500">
+            <div class="item-header">
+                <h3>Tiramisu</h3>
+                <span class="price">6,500 RWF</span>
+            </div>
+            <p class="item-description">Classic Italian dessert with coffee and mascarpone</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Crème Brûlée" data-item-price="6000">
+            <div class="item-header">
+                <h3>Crème Brûlée</h3>
+                <span class="price">6,000 RWF</span>
+            </div>
+            <p class="item-description">Vanilla custard with caramelized sugar crust</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Cheesecake" data-item-price="5500">
+            <div class="item-header">
+                <h3>New York Cheesecake</h3>
+                <span class="price">5,500 RWF</span>
+            </div>
+            <p class="item-description">Creamy cheesecake with berry compote</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- WINES -->
+<section id="wines" class="menu-section" style="background-image:url('wi.jpg');">
+    <div class="overlay">
+        <h2>Fine Wines</h2>
+
+        <article class="menu-item" data-item-name="Château Margaux 2015" data-item-price="150000">
+            <div class="item-header">
+                <h3>Château Margaux 2015</h3>
+                <span class="price">150,000 RWF</span>
+            </div>
+            <p class="item-description">Premier Grand Cru Classé, Bordeaux</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Dom Pérignon 2012" data-item-price="120000">
+            <div class="item-header">
+                <h3>Dom Pérignon 2012</h3>
+                <span class="price">120,000 RWF</span>
+            </div>
+            <p class="item-description">Vintage Champagne, France</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Barolo Riserva 2016" data-item-price="80000">
+            <div class="item-header">
+                <h3>Barolo Riserva 2016</h3>
+                <span class="price">80,000 RWF</span>
+            </div>
+            <p class="item-description">Piedmont, Italy - King of wines</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+<!-- BAKERY -->
+<section id="bakery" class="menu-section" style="background-image:url('bre.jpg');">
+    <div class="overlay">
+        <h2>Fresh Bakery</h2>
+
+        <article class="menu-item" data-item-name="Croissant" data-item-price="2000">
+            <div class="item-header">
+                <h3>Butter Croissant</h3>
+                <span class="price">2,000 RWF</span>
+            </div>
+            <p class="item-description">Flaky French pastry, baked fresh daily</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Pain au Chocolat" data-item-price="2500">
+            <div class="item-header">
+                <h3>Pain au Chocolat</h3>
+                <span class="price">2,500 RWF</span>
+            </div>
+            <p class="item-description">Chocolate-filled croissant pastry</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+
+        <article class="menu-item" data-item-name="Baguette" data-item-price="1500">
+            <div class="item-header">
+                <h3>French Baguette</h3>
+                <span class="price">1,500 RWF</span>
+            </div>
+            <p class="item-description">Traditional crusty French bread</p>
+            <button class="btn btn-add-cart" data-add-cart>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </article>
+    </div>
+</section>
+
+</main>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+    <h2 data-translate="testimonials-title">What Our Guests Say</h2>
+    
+    <div class="testimonials-container">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text" data-translate="testimonial-1">
+                "Absolutely phenomenal! The steak was cooked to perfection and the service 
+                was impeccable. Will definitely be returning with friends and family."
+            </p>
+            <div class="testimonial-author">
+                <img src="avatar1.jpg" alt="Sarah M." class="author-avatar">
+                <div class="author-info">
+                    <h4>Sarah M.</h4>
+                    <p data-translate="regular-guest">Regular Guest</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text" data-translate="testimonial-2">
+                "The ambiance, the food, the attention to detail - everything was perfect. 
+                Our anniversary dinner here was truly memorable. Highly recommended!"
+            </p>
+            <div class="testimonial-author">
+                <img src="avatar2.jpg" alt="James K." class="author-avatar">
+                <div class="author-info">
+                    <h4>James K.</h4>
+                    <p data-translate="food-critic">Food Critic</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial-card">
+            <div class="testimonial-stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text" data-translate="testimonial-3">
+                "From the moment we walked in, we felt like VIPs. The staff is incredibly 
+                knowledgeable and the wine pairing suggestions were spot on!"
+            </p>
+            <div class="testimonial-author">
+                <img src="avatar3.jpg" alt="Marie D." class="author-avatar">
+                <div class="author-info">
+                    <h4>Marie D.</h4>
+                    <p data-translate="wine-enthusiast">Wine Enthusiast</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- WHY CHOOSE US SECTION -->
+<section class="why-choose-us">
+    <h2 data-translate="why-choose-title">Why Choose Mövenpick</h2>
+    
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3 data-translate="feature-fresh-title">Fresh Ingredients</h3>
+            <p data-translate="feature-fresh-desc">Locally sourced, daily delivered premium ingredients</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-award"></i>
+            </div>
+            <h3 data-translate="feature-award-title">Award Winning</h3>
+            <p data-translate="feature-award-desc">Recognized for culinary excellence since 2015</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <h3 data-translate="feature-service-title">Exceptional Service</h3>
+            <p data-translate="feature-service-desc">Professional staff dedicated to your experience</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-wine-glass-alt"></i>
+            </div>
+            <h3 data-translate="feature-wine-title">Curated Wine List</h3>
+            <p data-translate="feature-wine-desc">Over 200 selections from around the world</p>
+        </div>
+    </div>
+</section>
+
+<!-- GOOGLE MAPS SECTION -->
+<section class="map-section">
+    <h2 data-translate="find-us">Find Us</h2>
+    <div class="map-container">
+        <div class="map-info">
+            <h3>Mövenpick Hotel Kigali</h3>
+            <p><i class="fas fa-map-marker-alt"></i> KN 3 Ave, Kigali, Rwanda</p>
+            <p><i class="fas fa-phone"></i> +250 700 000 000</p>
+            <p><i class="fas fa-envelope"></i> info@movenpick-kigali.com</p>
+            <a href="https://goo.gl/maps/8xN2ZqJ3zQy8v9vd8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">
+                <i class="fas fa-directions"></i> Get Directions
+            </a>
+        </div>
+        <div id="map" class="google-map">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.537406095389!2d30.092283714759974!3d-1.9535691372449716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca42d8f1b1a81%3A0x8a7f7f7f7f7f7f7f!2sM%C3%B6venpick%20Hotel%20Kigali!5e0!3m2!1sen!2srw!4v1234567890123!5m2!1sen!2srw" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mövenpick Hotel Kigali Location">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+    <h2>Contact & Reservations</h2>
+    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:info@movenpick-kigali.com">info@movenpick-kigali.com</a></p>
+    <p><i class="fas fa-phone"></i> Phone: +250 700 000 000</p>
+    <p><i class="fas fa-map-marker-alt"></i> Location: Kigali, Rwanda</p>
+
+    <div class="socials">
+        <a href="https://www.instagram.com/movenpickhotels/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="ig.svg" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.facebook.com/movenpickhotels" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img src="fb.svg" alt="Facebook" class="social-icon">
+        </a>
+    </div>
+
+    <p><i class="fas fa-clock"></i> Reception: 24/7 | Office: Mon – Fri, 08:00 – 18:00</p>
+    <p><i class="fas fa-globe"></i> Book online: <a href="https://all.accor.com/hotel/C0M5/index.en.shtml" target="_blank" rel="noopener noreferrer">Mövenpick Kigali</a></p>
+</section>
+
+<footer>
+    <p data-translate="footer-text">&copy; 2026 Mövenpick Restaurant. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mövenpick | Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="checkout-header">
+    <img src="logo.png" alt="Mövenpick" class="logo">
+    <nav>
+        <a href="index.html">Menu</a>
+        <a href="cart.html" class="active">Cart</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="checkout-container">
+
+    <!-- LEFT: CART ITEMS -->
+    <section class="cart-section">
+        <h2>Your Order</h2>
+        <div id="cartItems"></div>
+        <p id="emptyCart" class="empty-cart" style="display:none;">Your cart is empty.</p>
+    </section>
+
+    <!-- RIGHT: CHECKOUT -->
+    <section class="checkout-section">
+
+        <!-- ORDER SUMMARY -->
+        <div class="box">
+            <h3>Order Summary</h3>
+            <div class="row">
+                <span>Subtotal</span>
+                <span id="subtotal">0 RWF</span>
+            </div>
+            <div class="row">
+                <span>Delivery</span>
+                <span id="delivery">2,000 RWF</span>
+            </div>
+            <div class="row total">
+                <span>Total</span>
+                <span id="total">2,000 RWF</span>
+            </div>
+        </div>
+
+        <!-- DELIVERY DETAILS -->
+        <div class="box">
+            <h3>Delivery Information</h3>
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="tel" id="phone" placeholder="+250 7XX XXX XXX" required>
+            <textarea id="address" placeholder="Delivery Address" rows="3" required></textarea>
+            <input type="text" id="city" placeholder="City" value="Kigali">
+        </div>
+
+        <!-- PAYMENT METHOD -->
+        <div class="box">
+            <h3>Payment Method</h3>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Card" checked>
+                <i class="fa-solid fa-credit-card"></i>
+                Credit / Debit Card
+            </label>
+
+            <div class="payment-details" id="cardDetails">
+                <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19">
+                <div class="two-cols">
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                    <input type="text" id="cardCVV" placeholder="CVV" maxlength="4">
+                </div>
+            </div>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Mobile Money">
+                <i class="fa-solid fa-mobile"></i>
+                Mobile Money (MTN/Airtel)
+            </label>
+
+            <label class="payment-option">
+                <input type="radio" name="payment" value="Cash">
+                <i class="fa-solid fa-money-bill"></i>
+                Cash on Delivery
+            </label>
+        </div>
+
+        <!-- PLACE ORDER BUTTON -->
+        <button id="placeOrderBtn" class="place-order">
+            <i class="fa-solid fa-shopping-bag"></i> Place Order
+        </button>
+
+    </section>
+
+</main>
+
+<!-- SUCCESS MODAL -->
+<div id="successModal" class="success-modal">
+    <div class="success-box">
+        <i class="fa-solid fa-circle-check"></i>
+        <h2>Order Confirmed!</h2>
+        <p>Your order has been placed successfully.</p>
+        <p>Order #: <strong id="orderNumber"></strong></p>
+        <button onclick="window.location.href='index.html'" class="place-order">Back to Home</button>
+    </div>
+</div>
+
+<script src="cart.js"></script>
+
+</body>
+</html>

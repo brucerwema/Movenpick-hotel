@@ -1,0 +1,161 @@
+/* ===== GENERAL STYLING ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #fff8f0; /* light warm background for restaurant */
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #d35400; /* main accent color */
+}
+
+a:hover {
+    color: #e67e22;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #c0392b; /* deep red for restaurant theme */
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    font-size: 28px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* ===== HERO SECTION ===== */
+#hero {
+    background: url('../assets/hero.jpg') center/cover no-repeat; /* replace with hero image */
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#hero h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#hero a {
+    background-color: #e67e22;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+section h2 {
+    color: #c0392b;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ===== MENU HIGHLIGHTS ===== */
+#menu-preview article,
+#menu section article {
+    border: 1px solid #e67e22;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fff3e6;
+}
+
+/* ===== ABOUT PAGE ===== */
+#team ul {
+    list-style: none;
+    padding: 0;
+}
+
+#team ul li {
+    padding: 5px 0;
+}
+
+/* ===== BUTTONS ===== */
+button, a.button {
+    background-color: #e67e22;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover, a.button:hover {
+    background-color: #d35400;
+}
+
+/* ===== FORM STYLING ===== */
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: auto;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #c0392b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #hero {
+        padding: 50px 10px;
+    }
+}
